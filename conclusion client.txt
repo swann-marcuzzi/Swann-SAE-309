@@ -1,0 +1,17 @@
+Il est important de noter que le client de chat présenté dans le code n'est pas conçu avec un niveau élevé de sécurité, et diverses vulnérabilités peuvent être exploitées par un utilisateur malveillant pour modifier des éléments du programme. Voici quelques points à considérer concernant la sécurité du client :
+
+Communication non sécurisée : Le client communique avec le serveur via des sockets non sécurisées, ce qui signifie que les données échangées, y compris les informations d'identification, peuvent être interceptées par des tiers. L'utilisation de connexions sécurisées, telles que TLS/SSL, est recommandée pour chiffrer les échanges entre le client et le serveur.
+
+Validation insuffisante des données utilisateur : La validation des données utilisateur, en particulier lors de l'inscription et de l'authentification, est limitée. Les champs tels que le nom d'utilisateur et le mot de passe devraient être soumis à des vérifications plus approfondies pour prévenir les attaques par injection ou les tentatives d'exploitation des failles.
+
+Mot de passe statique : Le mot de passe actuel est statique et vérifié côté client. Dans un environnement sécurisé, les mots de passe devraient être stockés de manière sécurisée sur le serveur et vérifiés de manière appropriée en utilisant des techniques de hachage et de salage.
+
+Communication en texte brut : Les messages entre le client et le serveur sont transmis en texte brut, ce qui expose le contenu des messages à d'éventuelles interceptions. Une solution plus sécurisée serait de chiffrer les messages afin de protéger la confidentialité des informations échangées.
+
+Absence de gestion des erreurs de connexion : Les erreurs de connexion avec le serveur ne sont pas gérées de manière robuste, ce qui pourrait entraîner des comportements indésirables ou des failles de sécurité si le client ne parvient pas à se connecter correctement au serveur.
+
+Manipulation potentielle des messages : En tant que client, plusieurs parties du programme, y compris le traitement des messages, pourraient être sujettes à des manipulations malveillantes. Des mesures de sécurité supplémentaires, telles que la validation et la désinfection des entrées, sont nécessaires.
+
+Gestion limitée des sessions : Le client ne gère pas de manière approfondie les sessions utilisateur et l'authentification, ce qui pourrait conduire à des vulnérabilités liées à la gestion des identités.
+
+L'interface utilisateur peut être contournée : Comme le code du client s'exécute localement sur la machine de l'utilisateur, un individu mal intentionné pourrait potentiellement contourner certaines fonctionnalités ou interférer avec le programme.
